@@ -1,0 +1,44 @@
+[
+    {
+        "transactionName": "commodityExists",
+        "transactionLabel": "A test commodityExists transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "createCommodity",
+        "transactionLabel": "A test createCommodity transaction",
+        "arguments": [
+            "001",
+            "some value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "readCommodity",
+        "transactionLabel": "A test readCommodity transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "updateCommodity",
+        "transactionLabel": "A test updateCommodity transaction",
+        "arguments": [
+            "001",
+            "some other value"
+        ],
+        "transientData": {}
+    },
+    {
+        "transactionName": "deleteCommodity",
+        "transactionLabel": "A test deleteCommodity transaction",
+        "arguments": [
+            "001"
+        ],
+        "transientData": {}
+    }
+]
