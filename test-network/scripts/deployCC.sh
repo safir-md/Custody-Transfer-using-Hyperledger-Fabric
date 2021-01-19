@@ -356,7 +356,7 @@ if [ "$CC_INIT_FCN" = "NA" ]; then
   infoln "Chaincode initialization is not required"
 else
   chaincodeInvokeInit 1 2 4 5 6
-  chaincodeQuery 1
+  chaincodeQuery 1 4
 fi
 
 exit 0
