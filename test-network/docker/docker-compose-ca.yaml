@@ -19,7 +19,7 @@ services:
       - FABRIC_CA_SERVER_PORT=7054
     ports:
       - "7054:7054"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start -b admin1:adminpw1 -d'
     volumes:
       - ../organizations/fabric-ca/org1:/etc/hyperledger/fabric-ca-server
     container_name: ca_org1
@@ -35,7 +35,7 @@ services:
       - FABRIC_CA_SERVER_PORT=8054
     ports:
       - "8054:8054"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start -b admin2:adminpw2 -d'
     volumes:
       - ../organizations/fabric-ca/org2:/etc/hyperledger/fabric-ca-server
     container_name: ca_org2
@@ -52,7 +52,7 @@ services:
       - FABRIC_CA_SERVER_PORT=9054
     ports:
       - "9054:9054"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+    command: sh -c 'fabric-ca-server start -b admin4:adminpw4 -d'
     volumes:
       - ../organizations/fabric-ca/org4:/etc/hyperledger/fabric-ca-server
     container_name: ca_org4
@@ -66,10 +66,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org5
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_PORT=11054
+      - FABRIC_CA_SERVER_PORT=10054
     ports:
-      - "11054:9054"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+      - "10054:10054"
+    command: sh -c 'fabric-ca-server start -b admin5:adminpw5 -d'
     volumes:
       - ../organizations/fabric-ca/org5:/etc/hyperledger/fabric-ca-server
     container_name: ca_org5
@@ -82,10 +82,10 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-org6
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_PORT=13054
+      - FABRIC_CA_SERVER_PORT=11054
     ports:
-      - "13054:11054"
-    command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
+      - "11054:11054"
+    command: sh -c 'fabric-ca-server start -b admin6:adminpw6 -d'
     volumes:
       - ../organizations/fabric-ca/org6:/etc/hyperledger/fabric-ca-server
     container_name: ca_org6
@@ -98,9 +98,9 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca-orderer
       - FABRIC_CA_SERVER_TLS_ENABLED=true
-      - FABRIC_CA_SERVER_PORT=15054
+      - FABRIC_CA_SERVER_PORT=12054
     ports:
-      - "16054:16054"
+      - "12054:12054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw -d'
     volumes:
       - ../organizations/fabric-ca/ordererOrg:/etc/hyperledger/fabric-ca-server

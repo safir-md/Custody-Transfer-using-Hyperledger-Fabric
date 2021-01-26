@@ -9,8 +9,8 @@
 const { Gateway, Wallets } = require('fabric-network');
 const FabricCAServices = require('fabric-ca-client');
 const path = require('path');
-const { buildCAClient, registerAndEnrollUser, enrollAdmin } = require('../../test-application/javascript/CAUtil.js');
-const { buildCCPOrg1, buildWallet } = require('../../test-application/javascript/AppUtil.js');
+const { buildCAClient, registerAndEnrollUser, enrollAdmin } = require('/home/saf/fabric-samples/test-network/client-application/CAUtil.js');
+const { buildCCPOrg1, buildWallet } = require('/home/saf/fabric-samples/test-network/client-application/AppUtil.js');
 
 const channelName = 'mychannel';
 const chaincodeName = 'basic';
@@ -114,9 +114,9 @@ async function main() {
 			// This type of transaction would only be run once by an application the first time it was started after it
 			// deployed the first time. Any updates to the chaincode deployed later would likely not need to run
 			// an "init" type function.
-			console.log('\n--> Submit Transaction: InitLedger, function creates the initial set of assets on the ledger');
-			await contract.submitTransaction('InitLedger');
-			console.log('*** Result: committed');
+			//console.log('\n--> Submit Transaction: InitLedger, function creates the initial set of assets on the ledger');
+			//await contract.submitTransaction('InitLedger');
+			//console.log('*** Result: committed');
 
 			// Let's try a query type operation (function).
 			// This will be sent to just one peer and the results will be shown.
@@ -124,7 +124,7 @@ async function main() {
 			let result = await contract.evaluateTransaction('GetAllAssets');
 			console.log(`*** Result: ${prettyJSONString(result.toString())}`);
 
-			// Now let's try to submit a transaction.
+			/*// Now let's try to submit a transaction.
 			// This will be sent to both peers and if both peers endorse the transaction, the endorsed proposal will be sent
 			// to the orderer to be committed by each of the peer's to the channel ledger.
 			console.log('\n--> Submit Transaction: CreateAsset, creates new asset with ID, Country, Owner, Volume, Rate and Location arguments');
@@ -165,13 +165,13 @@ async function main() {
 				console.log(`*** Successfully caught the error: \n    ${error}`);
 			}*/
 
-			console.log('\n--> Submit Transaction: TransferAsset asset1, transfer to new owner of Tom');
+			/*console.log('\n--> Submit Transaction: TransferAsset asset1, transfer to new owner of Tom');
 			await contract.submitTransaction('TransferAsset', 'asset1', 'Eni Deutschland GmbH');
 			console.log('*** Result: committed');
 
 			console.log('\n--> Evaluate Transaction: ReadAsset, function returns "asset1" attributes');
 			result = await contract.evaluateTransaction('ReadAsset', 'asset1');
-			console.log(`*** Result: ${prettyJSONString(result.toString())}`);
+			console.log(`*** Result: ${prettyJSONString(result.toString())}`);*/
 		} finally {
 			// Disconnect from the gateway when the application is closing
 			// This will close all connections to the network
