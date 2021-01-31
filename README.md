@@ -11,3 +11,4 @@ Go to the Test_Network directory: \
   docker run -i -t -d -p 13051 hyperledger/fabric-peer:latest \
   
   ./network.sh deployCC -ccn basic -ccp ../Custody-Transfer-using-Hyperledger-Fabric/ct-chaincode-js/ -ccl javascript -cci InitLedger \
+  ./network.sh deployCC -ccn basic -ccp chaincode/ -ccl javascript -cci InitLedger
