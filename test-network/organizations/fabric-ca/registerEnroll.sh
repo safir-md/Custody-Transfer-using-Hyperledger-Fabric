@@ -12,7 +12,7 @@ function createOrg1() {
   #  rm -rf $FABRIC_CA_CLIENT_HOME/msp
 
   set -x
-  fabric-ca-client enroll -u https://admin:adminpw@localhost:7054 --caname ca-org1 --tls.certfiles ${PWD}/organizations/fabric-ca/org1/tls-cert.pem
+  fabric-ca-client enroll -u https://admin1:adminpw1@localhost:7054 --caname ca-org1 --tls.certfiles ${PWD}/organizations/fabric-ca/org1/tls-cert.pem
   { set +x; } 2>/dev/null
 
   echo 'NodeOUs:
@@ -104,7 +104,7 @@ function createOrg2() {
   #  rm -rf $FABRIC_CA_CLIENT_HOME/msp
 
   set -x
-  fabric-ca-client enroll -u https://admin:adminpw@localhost:8054 --caname ca-org2 --tls.certfiles ${PWD}/organizations/fabric-ca/org2/tls-cert.pem
+  fabric-ca-client enroll -u https://admin2:adminpw2@localhost:8054 --caname ca-org2 --tls.certfiles ${PWD}/organizations/fabric-ca/org2/tls-cert.pem
   { set +x; } 2>/dev/null
 
   echo 'NodeOUs:
@@ -196,7 +196,7 @@ function createOrg4() {
   #  rm -rf $FABRIC_CA_CLIENT_HOME/msp
 
   set -x
-  fabric-ca-client enroll -u https://admin:adminpw@localhost:9054 --caname ca-org4 --tls.certfiles ${PWD}/organizations/fabric-ca/org4/tls-cert.pem
+  fabric-ca-client enroll -u https://admin4:adminpw4@localhost:9054 --caname ca-org4 --tls.certfiles ${PWD}/organizations/fabric-ca/org4/tls-cert.pem
   { set +x; } 2>/dev/null
 
   echo 'NodeOUs:
@@ -288,7 +288,7 @@ function createOrg5() {
   #  rm -rf $FABRIC_CA_CLIENT_HOME/msp
 
   set -x
-  fabric-ca-client enroll -u https://admin:adminpw@localhost:10054 --caname ca-org5 --tls.certfiles ${PWD}/organizations/fabric-ca/org5/tls-cert.pem
+  fabric-ca-client enroll -u https://admin5:adminpw5@localhost:10054 --caname ca-org5 --tls.certfiles ${PWD}/organizations/fabric-ca/org5/tls-cert.pem
   { set +x; } 2>/dev/null
 
   echo 'NodeOUs:
@@ -380,7 +380,7 @@ function createOrg6() {
   #  rm -rf $FABRIC_CA_CLIENT_HOME/msp
 
   set -x
-  fabric-ca-client enroll -u https://admin:adminpw@localhost:11054 --caname ca-org6 --tls.certfiles ${PWD}/organizations/fabric-ca/org6/tls-cert.pem
+  fabric-ca-client enroll -u https://admin6:adminpw6@localhost:11054 --caname ca-org6 --tls.certfiles ${PWD}/organizations/fabric-ca/org6/tls-cert.pem
   { set +x; } 2>/dev/null
 
   echo 'NodeOUs:

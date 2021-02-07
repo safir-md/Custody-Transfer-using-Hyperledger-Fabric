@@ -3,12 +3,12 @@
 source scriptUtils.sh
 
 CHANNEL_NAME=${1:-"mychannel"}
-CC_NAME=${2}
-CC_SRC_PATH=${3}
-CC_SRC_LANGUAGE=${4}
+CC_NAME=${2:-"basic"}
+CC_SRC_PATH="SmartContract/"
+CC_SRC_LANGUAGE="javascript"
 CC_VERSION=${5:-"1.0"}
 CC_SEQUENCE=${6:-"1"}
-CC_INIT_FCN=${7:-"NA"}
+CC_INIT_FCN="InitLedger"
 CC_END_POLICY=${8:-"NA"}
 CC_COLL_CONFIG=${9:-"NA"}
 DELAY=${10:-"3"}
@@ -350,13 +350,7 @@ queryCommitted 4
 queryCommitted 5
 queryCommitted 6
 
-## Invoke the chaincode - this does require that the chaincode have the 'initLedger'
-## method defined
-if [ "$CC_INIT_FCN" = "NA" ]; then
-  infoln "Chaincode initialization is not required"
-else
-  chaincodeInvokeInit 1 2 4 5 6
-  chaincodeQuery 1 4
-fi
+chaincodeInvokeInit 1 2 4 5 6
+chaincodeQuery 1
 
 exit 0
