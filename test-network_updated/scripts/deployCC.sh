@@ -341,7 +341,8 @@ approveForMyOrg 6
 checkCommitReadiness 6 "\"Buyer1MSP\": true" "\"Gov1MSP\": true" "\"Gov2MSP\": true" "\"Tsp1MSP\": true" "\"Seller1MSP\": true"
 
 ## now that we know for sure both orgs have approved, commit the definition
-commitChaincodeDefinition 1 2 4 5 6
+## commitChaincodeDefinition 1 2 4 5 6
+peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /d/Latest1111/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem --channelID mychannel --name basic --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/buyer1.example.com/peers/peer0.buyer1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/gov1.example.com/peers/peer0.gov1.example.com/tls/ca.crt --peerAddresses localhost:11051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/gov2.example.com/peers/peer0.gov2.example.com/tls/ca.crt --peerAddresses localhost:13051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/tsp1.example.com/peers/peer0.tsp1.example.com/tls/ca.crt --peerAddresses localhost:15051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/seller1.example.com/peers/peer0.seller1.example.com/tls/ca.crt --version 1.0 --sequence 1 --init-required
 
 ## query on both orgs to see that the definition committed successfully
 queryCommitted 1
@@ -355,7 +356,8 @@ queryCommitted 6
 if [ "$CC_INIT_FCN" = "NA" ]; then
   infoln "Chaincode initialization is not required"
 else
-  chaincodeInvokeInit 1 2 4 5 6
+  #chaincodeInvokeInit 1 2 4 5 6
+  peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com --tls --cafile /d/Latest1111/fabric-samples/test-network/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem -C mychannel -n basic --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/buyer1.example.com/peers/peer0.buyer1.example.com/tls/ca.crt --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/gov1.example.com/peers/peer0.gov1.example.com/tls/ca.crt --peerAddresses localhost:11051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/gov2.example.com/peers/peer0.gov2.example.com/tls/ca.crt --peerAddresses localhost:13051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/tsp1.example.com/peers/peer0.tsp1.example.com/tls/ca.crt --peerAddresses localhost:15051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/seller1.example.com/peers/peer0.seller1.example.com/tls/ca.crt --isInit -c '{"function":"InitLedger","Args":[]}'
   chaincodeQuery 1 4
 fi
 
