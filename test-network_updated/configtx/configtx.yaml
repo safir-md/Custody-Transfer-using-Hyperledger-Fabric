@@ -44,13 +44,13 @@ Organizations:
         OrdererEndpoints:
             - orderer.example.com:7050
 
-    - &buyer1
+    - &Buyer1
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: buyer1MSP
+        Name: Buyer1MSP
 
         # ID to load the MSP definition as
-        ID: buyer1MSP
+        ID: Buyer1MSP
 
         MSPDir: ../organizations/peerOrganizations/buyer1.example.com/msp
 
@@ -60,16 +60,16 @@ Organizations:
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('buyer1MSP.admin', 'buyer1MSP.peer', 'buyer1MSP.client')"
+                Rule: "OR('Buyer1MSP.admin', 'Buyer1MSP.peer', 'Buyer1MSP.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('buyer1MSP.admin', 'buyer1MSP.client')"
+                Rule: "OR('Buyer1MSP.admin', 'Buyer1MSP.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('buyer1MSP.admin')"
+                Rule: "OR('Buyer1MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('buyer1MSP.peer')"
+                Rule: "OR('Buyer1MSP.peer')"
 
         # leave this flag set to true.
         AnchorPeers:
@@ -79,13 +79,13 @@ Organizations:
             - Host: peer0.buyer1.example.com
               Port: 7051
 
-    - &gov1
+    - &Gov1
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: gov1MSP
+        Name: Gov1MSP
 
         # ID to load the MSP definition as
-        ID: gov1MSP
+        ID: Gov1MSP
 
         MSPDir: ../organizations/peerOrganizations/gov1.example.com/msp
 
@@ -95,16 +95,16 @@ Organizations:
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('gov1MSP.admin', 'gov1MSP.peer', 'gov1MSP.client')"
+                Rule: "OR('Gov1MSP.admin', 'Gov1MSP.peer', 'Gov1MSP.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('gov1MSP.admin', 'gov1MSP.client')"
+                Rule: "OR('Gov1MSP.admin', 'Gov1MSP.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('gov1MSP.admin')"
+                Rule: "OR('Gov1MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('gov1MSP.peer')"
+                Rule: "OR('Gov1MSP.peer')"
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
@@ -113,13 +113,13 @@ Organizations:
             - Host: peer0.gov1.example.com
               Port: 9051
 
-    - &gov2
+    - &Gov2
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: gov2MSP
+        Name: Gov2MSP
 
         # ID to load the MSP definition as
-        ID: gov2MSP
+        ID: Gov2MSP
 
         MSPDir: ../organizations/peerOrganizations/gov2.example.com/msp
 
@@ -129,16 +129,16 @@ Organizations:
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('gov2MSP.admin', 'gov2MSP.peer', 'gov2MSP.client')"
+                Rule: "OR('Gov2MSP.admin', 'Gov2MSP.peer', 'Gov2MSP.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('gov2MSP.admin', 'gov2MSP.client')"
+                Rule: "OR('Gov2MSP.admin', 'Gov2MSP.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('gov2MSP.admin')"
+                Rule: "OR('Gov2MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('gov2MSP.peer')"
+                Rule: "OR('Gov2MSP.peer')"
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
@@ -147,13 +147,13 @@ Organizations:
             - Host: peer0.gov2.example.com
               Port: 11051
 
-    - &tsp1
+    - &Tsp1
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: tsp1MSP
+        Name: Tsp1MSP
 
         # ID to load the MSP definition as
-        ID: tsp1MSP
+        ID: Tsp1MSP
 
         MSPDir: ../organizations/peerOrganizations/tsp1.example.com/msp
 
@@ -163,16 +163,16 @@ Organizations:
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('tsp1MSP.admin', 'tsp1MSP.peer', 'tsp1MSP.client')"
+                Rule: "OR('Tsp1MSP.admin', 'Tsp1MSP.peer', 'Tsp1MSP.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('tsp1MSP.admin', 'tsp1MSP.client')"
+                Rule: "OR('Tsp1MSP.admin', 'Tsp1MSP.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('tsp1MSP.admin')"
+                Rule: "OR('Tsp1MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('tsp1MSP.peer')"
+                Rule: "OR('Tsp1MSP.peer')"
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
@@ -181,13 +181,13 @@ Organizations:
             - Host: peer0.tsp1.example.com
               Port: 13051
 
-    - &seller1
+    - &Seller1
         # DefaultOrg defines the organization which is used in the sampleconfig
         # of the fabric.git development environment
-        Name: seller1MSP
+        Name: Seller1MSP
 
         # ID to load the MSP definition as
-        ID: seller1MSP
+        ID: Seller1MSP
 
         MSPDir: ../organizations/peerOrganizations/seller1.example.com/msp
 
@@ -197,16 +197,16 @@ Organizations:
         Policies:
             Readers:
                 Type: Signature
-                Rule: "OR('seller1MSP.admin', 'seller1MSP.peer', 'seller1MSP.client')"
+                Rule: "OR('Seller1MSP.admin', 'Seller1MSP.peer', 'Seller1MSP.client')"
             Writers:
                 Type: Signature
-                Rule: "OR('seller1MSP.admin', 'seller1MSP.client')"
+                Rule: "OR('Seller1MSP.admin', 'Seller1MSP.client')"
             Admins:
                 Type: Signature
-                Rule: "OR('seller1MSP.admin')"
+                Rule: "OR('Seller1MSP.admin')"
             Endorsement:
                 Type: Signature
-                Rule: "OR('seller1MSP.peer')"
+                Rule: "OR('Seller1MSP.peer')"
 
         AnchorPeers:
             # AnchorPeers defines the location of peers which can be used
@@ -429,21 +429,21 @@ Profiles:
         Consortiums:
             SampleConsortium:
                 Organizations:
-                    - *buyer1
-                    - *gov1
-                    - *gov2
-                    - *tsp1
-                    - *seller1
+                    - *Buyer1
+                    - *Gov1
+                    - *Gov2
+                    - *Tsp1
+                    - *Seller1
     FiveOrgsChannel:
         Consortium: SampleConsortium
         <<: *ChannelDefaults
         Application:
             <<: *ApplicationDefaults
             Organizations:
-                - *buyer1
-                - *gov1
-                - *gov2
-                - *tsp1
-                - *seller1
+                - *Buyer1
+                - *Gov1
+                - *Gov2
+                - *Tsp1
+                - *Seller1
             Capabilities:
                 <<: *ApplicationCapabilities
