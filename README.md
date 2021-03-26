@@ -14,7 +14,9 @@ Go to Application (server) directory: \
   
   node index.js
 #############################################################################
+                                      Procedure
 #############################################################################
+
 
 cd fabric-samples/test-network/
 
@@ -25,6 +27,12 @@ cd fabric-samples/test-network/
 ./network.sh deployCC -ccn basic -ccp ../ct-chaincode-js/ -ccl javascript -cci InitLedger
 
 code .
+
+change ip address in request.js and config.js file 
+
+
+##################################VS Code Terminal 1#################################
+
 
 cd client-application/Server/
 
@@ -37,12 +45,14 @@ node registerUser.js
 nodemon apiserver.js
 
 
-##################################WSL#################################
-######################################################################
+##################################VS Code Terminal 2#################################
+
 
 ip addr
 
+cd custody delivery/
+
 ember serve
 
-######################Browser##########################
-ipaddress:3000/display_asset
+ipaddress:4200/login
+
