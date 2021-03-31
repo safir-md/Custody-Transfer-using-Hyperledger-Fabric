@@ -1,0 +1,18 @@
+<section class="container">
+  <header class="header">
+    <h1 class="text-center header-title">
+      Custody Transfer
+    </h1>
+    <div class="header-links">
+      {{#if this.canShowLogout}}
+        <span class="link" {{on "click" this.logout}}>
+          Logout
+        </span>
+      {{/if}}
+    </div>
+  </header>
+  <section class="body">
+    {{outlet}}
+  </section>
+  <footer class="footer"></footer>
+</section>

@@ -1,0 +1,139 @@
+<section
+  class="main-container mod-no-padding mod-wide"
+  {{did-insert this.loadData}}
+>
+  <h2 class="title">
+    Check Status
+  </h2>
+  {{#accordion-list class="my-accordion" animation=true as |accordion|}}
+    {{#accordion.item name="assetInfo" expandOnInit=true as |item|}}
+      {{#item.header class="accordion-header" aria-level="4"}}
+        Display Asset Info
+      {{/item.header}}
+      {{#item.panel class="accordion-panel"}}
+        {{#if this.isLoading}}
+          <Loading />
+        {{else}}
+          <div class="flex flex-col asset-data">
+            {{#each-in this.assetData as |key value|}}
+              <div class="flex flex-row">
+                <label class="form-label label asset-label">
+                  {{key}}
+                  :
+                </label>
+                <label class="form-label label">
+                  {{value}}
+                </label>
+              </div>
+            {{/each-in}}
+          </div>
+        {{/if}}
+      {{/item.panel}}
+    {{/accordion.item}}
+    {{#accordion.item name="assetHistory" as |item|}}
+      {{#item.header class="accordion-header" aria-level="4"}}
+        Show History
+      {{/item.header}}
+      {{#item.panel class="accordion-panel"}}
+        <table>
+          <thead>
+            <th>
+              Blocked Quantity
+            </th>
+            <th>
+              Location
+            </th>
+            <th>
+              Rate
+            </th>
+            <th>
+              Buyer Volume
+            </th>
+            <th>
+              Seller Volume
+            </th>
+            <th>
+              Buyer Country
+            </th>
+            <th>
+              Seller Country
+            </th>
+            <th>
+              Global MSS Buyer
+            </th>
+            <th>
+              Global MSS Seller
+            </th>
+            <th>
+              National MSS Buyer
+            </th>
+            <th>
+              National MSS Seller
+            </th>
+          </thead>
+          <tbody>
+            {{#each this.historyData as |data|}}
+              {{#let data.Value as |asset|}}
+                <tr>
+                  <td>
+                    {{get asset "blockedQuantity"}}
+                  </td>
+                  <td>
+                    {{get asset "location"}}
+                  </td>
+                  <td>
+                    {{get asset "rate"}}
+                  </td>
+                  <td>
+                    {{get asset "buyerVolume"}}
+                  </td>
+                  <td>
+                    {{get asset "sellerVolume"}}
+                  </td>
+                  <td>
+                    {{get asset "buyerCountry"}}
+                  </td>
+                  <td>
+                    {{get asset "sellerCountry"}}
+                  </td>
+                  <td>
+                    {{get asset "globalMSSBuyer"}}
+                  </td>
+                  <td>
+                    {{get asset "globalMSSSeller"}}
+                  </td>
+                  <td>
+                    {{get asset "nationalMSSBuyer"}}
+                  </td>
+                  <td>
+                    {{get asset "nationalMSSSeller"}}
+                  </td>
+                </tr>
+              {{/let}}
+            {{/each}}
+          </tbody>
+        </table>
+      {{/item.panel}}
+    {{/accordion.item}}
+    {{#accordion.item name="reloadQuantity" as |item|}}
+      {{#item.header class="accordion-header" aria-level="4"}}
+        Reload Quantity
+      {{/item.header}}
+      {{#item.panel class="accordion-panel"}}
+        <div class="accordion-form-container">
+          <div class="form-field">
+            <Input
+              @type="number"
+              @placeholder="Enter Quantity"
+              @value={{this.reloadQuantity}}
+              class="input-fields"
+            />
+          </div>
+          <button class="primary-btn" {{on "click" this.performSubmit}}>
+            Submit
+          </button>
+        </div>
+      {{/item.panel}}
+    {{/accordion.item}}
+  {{/accordion-list}}
+</section>

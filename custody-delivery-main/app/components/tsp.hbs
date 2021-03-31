@@ -1,0 +1,50 @@
+<section
+  class="main-container mod-no-padding mod-wide"
+  {{did-insert this.loadData}}
+>
+  <h2 class="title">
+    TSP Console
+  </h2>
+  {{#accordion-list class="my-accordion" animation=true as |accordion|}}
+    {{#accordion.item name="assetInfo" expandOnInit=true as |item|}}
+      {{#item.header class="accordion-header" aria-level="4"}}
+        Show Blocked Quantity
+      {{/item.header}}
+      {{#item.panel class="accordion-panel"}}
+        {{#if this.isLoading}}
+          <Loading />
+        {{else}}
+          <div class="flex flex-row form-field asset-data">
+            <label class="form-label label asset-label">
+              Quantity
+              :
+            </label>
+            <label class="form-label label">
+              {{this.blockedQuantity.qty}}
+            </label>
+          </div>
+        {{/if}}
+      {{/item.panel}}
+    {{/accordion.item}}
+    {{#accordion.item name="assetHistory" as |item|}}
+      {{#item.header class="accordion-header" aria-level="4"}}
+        Update Location
+      {{/item.header}}
+      {{#item.panel class="accordion-panel"}}
+        <div class="accordion-form-container">
+          <div class="form-field">
+            <Input
+              @type="text"
+              @placeholder="Enter Location"
+              @value={{this.newLocation}}
+              class="input-fields"
+            />
+          </div>
+          <button class="primary-btn" {{on "click" this.performSubmit}}>
+            Submit
+          </button>
+        </div>
+      {{/item.panel}}
+    {{/accordion.item}}
+  {{/accordion-list}}
+</section>

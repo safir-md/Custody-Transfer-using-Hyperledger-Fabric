@@ -1,0 +1,42 @@
+<section class="flex-center flex-col login-container">
+  <div class="icon">
+    {{inline-svg "login" class="icon-medium"}}
+  </div>
+  <Input
+    @type="text"
+    @placeholder="Username"
+    @value={{this.username}}
+    class="input-fields form-field"
+  />
+  <Input
+    @type="password"
+    @placeholder="Password"
+    @value={{this.password}}
+    class="input-fields form-field"
+  />
+  <div class="flex-center flex-row form-field">
+    <label class="label">
+      User Type:
+    </label>
+    <PowerSelect
+      @options={{this.userTypes}}
+      @onChange={{this.onUserChange}}
+      @selected={{this.selectedUserType}} as |userType|
+    >
+      {{userType.name}}
+    </PowerSelect>
+  </div>
+  {{#if canShowCountry}}
+    <div class="flex-center flex-row form-field">
+      <label class="label">
+        Country:
+      </label>
+      <span title={{this.selectedCountry.name}}>
+        {{inline-svg this.selectedCountry.flag class="icon-medium"}}
+      </span>
+    </div>
+  {{/if}}
+  <button class="primary-btn" {{on "click" this.performLogin}}>
+    Login
+  </button>
+</section>

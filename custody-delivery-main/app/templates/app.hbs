@@ -1,0 +1,7 @@
+{{#if (eq this.userType "1")}}
+  <Buyer />
+{{else if (eq this.userType "2")}}
+  <Seller />
+{{else}}
+  <Tsp />
+{{/if}}

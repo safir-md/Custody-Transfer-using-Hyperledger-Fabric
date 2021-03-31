@@ -1,0 +1,59 @@
+<section class="main-container">
+  <h2 class="title">
+    Place Order
+  </h2>
+  <div class="form-field">
+    <div class="flex flex-col">
+      <label class="form-label label">
+        Quantity:
+        <span class="required">
+          *
+        </span>
+      </label>
+      <div class="flex-center flex-row">
+        <Input
+          @type="number"
+          @placeholder="Enter Quantity"
+          @value={{this.quantity}}
+          class="input-fields"
+        />
+        <label class="label label-right">
+          Gallons
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-field flex flex-col">
+    <label class="form-label label">
+      Global Certificate:
+      <span class="required">
+        *
+      </span>
+    </label>
+    <Input
+      @type="text"
+      @placeholder="Enter your Global Certificate"
+      @value={{this.globalCertificate}}
+      class="input-fields"
+    />
+  </div>
+  <div class="form-field flex flex-col">
+    <label class="form-label label">
+      Local Certificate:
+      <span class="required">
+        *
+      </span>
+    </label>
+    <Input
+      @type="text"
+      @placeholder="Enter your Local Certificate"
+      @value={{this.localCertificate}}
+      class="input-fields"
+    />
+  </div>
+  <div class="text-center">
+    <button class="primary-btn" {{on "click" this.performSubmit}}>
+      Submit
+    </button>
+  </div>
+</section>
