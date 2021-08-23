@@ -1,58 +1,44 @@
 # Custody-Transfer-using-Hyperledger-Fabric
- 
-Go to the Test_Network directory: \
 
-  ./network.sh down \
-  
-  ./network.sh up createChannel \
-  
-  ./network.sh deployCC\
-  
-Go to Application (server) directory: \
+## Project Details:
+This project was carried out under a module, HIS Project (10 CP), in the Master's Course, High Integrity Systems at Frankfurt University of Applied Sciences. Please find the project report [here.](Docs/Team_Platinum_Final_Report.pdf)
 
-  npm install \
-  
-  node index.js
-#############################################################################
-                                      Procedure
-#############################################################################
+## Project Team Members: 
+Saﬁr Mohammad Shaikh, Parag Tambalkar, Vidya Gopalakrishnarao, Pranay Raman
 
+## Technologies Used:
+* Language: Shell, JavaScript
+* FrontEnd: Ember JS
+* BackEnd: Node JS
+* Blockchain Network: Hyperledger Fabric 2.x
+* Documentation: Latex
 
-cd fabric-samples/test-network/
-
+## How to Run?
+1. Clone the Repository:
+```sh
+git clone https://github.com/Safir-Mohammad-Mustak-Shaikh/Custody-Transfer-using-Hyperledger-Fabric.git
+```
+2. Go to Test_Network directory and Bring the Network up:
+```sh
+cd Custody-Transfer-using-Hyperledger-Fabric/test-network
 ./network.sh down
-
 ./network.sh up createChannel
-
-./network.sh deployCC -ccn basic -ccp ../ct-chaincode-js/ -ccl javascript -cci InitLedger
-
-code .
-
-change ip address in request.js and config.js file 
-
-
-##################################VS Code Terminal 1#################################
-
-
-cd client-application/Server/
-
+```
+3. Install Chaincode
+```sh
+./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-javascript/ -ccl javascript -cci InitLedger
+```
+4. Start Backend Server
+```sh
 npm install
-
 node enrollAdmin.js
-
 node registerUser.js
-
 nodemon apiserver.js
-
-
-##################################VS Code Terminal 2#################################
-
-
-ip addr
-
-cd custody delivery/
-
+```
+5. Open new Terminal window
+```sh
+cd Custody-Transfer-using-Hyperledger-Fabric/custody-delivery-main
+npm install
 ember serve
-
-ipaddress:4200/login
-
+```
+6. Now, the app is running on port 4200.
